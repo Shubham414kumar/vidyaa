@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional VidyaSphere Educational Platform Design System */
+
+@layer base {
+  :root {
+    /* Professional Educational Theme */
+    --background: 210 40% 98%;
+    --foreground: 210 22% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 22% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 22% 20%;
+
+    /* Professional Blue Primary */
+    --primary: 214 67% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Gray Secondary */
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 210 22% 20%;
+
+    --muted: 220 13% 91%;
+    --muted-foreground: 215 25% 46%;
+
+    /* Muted Green Accent */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 67% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom VidyaSphere Variables */
+    --hero-gradient: linear-gradient(135deg, hsl(214 67% 45%) 0%, hsl(142 76% 36%) 100%);
+    --card-shadow: 0 4px 20px -4px hsl(214 67% 45% / 0.1);
+    --text-gradient: linear-gradient(135deg, hsl(214 67% 45%), hsl(142 76% 36%));
+    
+    /* Educational Typography */
+    --font-heading: 'Inter', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* Sidebar Variables */
+    --sidebar-background: 220 13% 91%;
+    --sidebar-foreground: 210 22% 20%;
+    --sidebar-primary: 214 67% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 142 76% 36%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 214 67% 45%;
+  }
+
+  .dark {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 214 67% 65%;
+    --primary-foreground: 222 84% 5%;
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 142 76% 46%;
+    --accent-foreground: 222 84% 5%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 214 67% 65%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .educational-pattern {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }

@@ -1,0 +1,49 @@
+{
+  "pyqs": [
+    {
+      "id": "1757754249882",
+      "course": "computer science",
+      "subject": "oops",
+      "semester": "3",
+      "year": "2023",
+      "paperTitle": "end",
+      "hasAnswers": false,
+      "fileName": "pyqFile-1757754249846-312453624.pdf",
+      "originalName": "OOPs_ClassII_Notes_2nd April 2023 (10).pdf",
+      "filePath": "C:\\Users\\shubh\\Desktop\\vidyasphere-main\\pyq-server\\uploads\\pyqs\\pyqFile-1757754249846-312453624.pdf",
+      "uploadDate": "2025-09-13T09:04:09.882Z",
+      "downloads": 0,
+      "rating": 0
+    },
+    {
+      "id": "1757754331405",
+      "course": "computer science",
+      "subject": "oops",
+      "semester": "3",
+      "year": "2003",
+      "paperTitle": "End",
+      "hasAnswers": false,
+      "fileName": "pyqFile-1757754331359-17570818.pdf",
+      "originalName": "OOPs_ClassII_Notes_2nd April 2023 (2).pdf",
+      "filePath": "C:\\Users\\shubh\\Desktop\\vidyasphere-main\\pyq-server\\uploads\\pyqs\\pyqFile-1757754331359-17570818.pdf",
+      "uploadDate": "2025-09-13T09:05:31.405Z",
+      "downloads": 0,
+      "rating": 0
+    },
+    {
+      "id": "1757761789839",
+      "course": "computer science",
+      "subject": "oops",
+      "semester": "3",
+      "year": "2023",
+      "paperTitle": "end",
+      "hasAnswers": false,
+      "fileName": "pyqFile-1757761789799-769092964.pdf",
+      "originalName": "OOPs_ClassII_Notes_2nd April 2023 (5).pdf",
+      "filePath": "C:\\Users\\shubh\\Desktop\\vidyasphere-main\\pyq-server\\uploads\\pyqs\\pyqFile-1757761789799-769092964.pdf",
+      "uploadDate": "2025-09-13T11:09:49.839Z",
+      "downloads": 0,
+      "rating": 0
+    }
+  ]
+}
