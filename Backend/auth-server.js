@@ -118,11 +118,11 @@ passport.deserializeUser(async (id, done) => {
 // --- Google Auth Routes ---
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: 'https://backend-1-yuaw.onrender.com/login', session: false }),
+    passport.authenticate('google', { failureRedirect: 'https://vidyasphere.online/login', session: false }),
     function(req, res) {
         const user = req.user;
         const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
-        res.redirect(`https://backend-1-yuaw.onrender.com/auth/callback?token=${token}`);
+        res.redirect(`https://vidyasphere.online/auth/callback?token=${token}`);
     }
 );
 
