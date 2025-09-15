@@ -61,7 +61,7 @@ const Login = () => {
                 className="w-full"
                 size="lg"
               >
-                <a href="http://localhost:5000/auth/google">
+                <a href="https://backend-1-yuaw.onrender.com/auth/google">
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                     <path
                       fill="#4285F4"

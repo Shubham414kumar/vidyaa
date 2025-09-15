@@ -173,7 +173,7 @@ const Batches = () => {
 
     try {
       const amount = parseInt(batch.price.replace(/[₹,]/g, ''));
-      const backendUrl = 'http://localhost:3001/api/pay';
+      const backendUrl = 'https://backend-1-yuaw.onrender.com/api/pay';
       const payload = {
         amount,
         courseName: batch.title,

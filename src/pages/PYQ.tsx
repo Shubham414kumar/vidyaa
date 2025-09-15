@@ -75,7 +75,7 @@ const PYQ = () => {
 
     try {
       // 3. Send the data to your PYQ backend server
-      const response = await axios.post("http://localhost:5001/api/upload-pyq", formData, {
+      const response = await axios.post("https://backend-1-yuaw.onrender.com/api/upload-pyq", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

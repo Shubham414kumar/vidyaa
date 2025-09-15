@@ -61,7 +61,7 @@ const Donate = () => {
     setIsLoading(true);
 
     try {
-      const backendUrl = "http://localhost:3001/api/donate";
+      const backendUrl = "https://backend-1-yuaw.onrender.com/api/donate";
 
       const payload = {
         amount: finalAmount,

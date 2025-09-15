@@ -49,7 +49,7 @@ const SignUp = () => {
     setIsLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/signup-send-otp", formData);
+      await axios.post("https://backend-1-yuaw.onrender.com/api/signup-send-otp", formData);
       toast({ title: "OTP Sent", description: `Verification code sent to +91 ${formData.phone}` });
       setStep('otp');
       startCountdown();
@@ -70,7 +70,7 @@ const SignUp = () => {
 
     try {
       const payload = { phone: formData.phone, otp };
-      await axios.post("http://localhost:5000/api/signup-verify-otp", payload);
+      await axios.post("https://backend-1-yuaw.onrender.com/api/signup-verify-otp", payload);
       toast({ title: "Account Created!", description: "Welcome to VidyaSphere! Please log in to continue." });
       navigate('/login');
     } catch (error: any) {
