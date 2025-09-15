@@ -78,7 +78,7 @@ passport.use(new GoogleStrategy({
     // ... passport configuration ... (code is unchanged)
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:5000/auth/google/callback"
+    callbackURL: "https://backend-1-yuaw.onrender.com/auth/google/callback"
   },
   async function(accessToken, refreshToken, profile, done) {
     try {
@@ -118,11 +118,11 @@ passport.deserializeUser(async (id, done) => {
 // --- Google Auth Routes ---
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: 'http://localhost:5173/login', session: false }),
+    passport.authenticate('google', { failureRedirect: 'https://backend-1-yuaw.onrender.com/login', session: false }),
     function(req, res) {
         const user = req.user;
         const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
-        res.redirect(`http://localhost:5173/auth/callback?token=${token}`);
+        res.redirect(`https://backend-1-yuaw.onrender.com/auth/callback?token=${token}`);
     }
 );
 
@@ -225,5 +225,5 @@ app.post('/api/user/subjects/:id/mark', authMiddleware, async (req, res) => {
 // === 5. START SERVER ===================================
 // =======================================================
 app.listen(PORT, () => {
-    console.log(`Unified Auth and Attendance server running on http://localhost:${PORT}`);
+    console.log(`Unified Auth and Attendance server running on https://backend-1-yuaw.onrender.com`);
 });

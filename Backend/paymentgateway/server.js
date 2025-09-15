@@ -57,9 +57,9 @@ app.post('/api/pay', async (req, res) => {
             merchantTransactionId: merchantTransactionId,
             merchantUserId: userId || 'MUID-' + uniqid(),
             amount: amount * 100, // Amount in paisa
-            redirectUrl: `http://localhost:5173/payment-status/${merchantTransactionId}`,
+            redirectUrl: `https://backend-1-yuaw.onrender.com/payment-status/${merchantTransactionId}`,
             redirectMode: 'POST',
-            callbackUrl: `https://YOUR_LIVE_BACKEND_URL/api/callback`, // <-- IMPORTANT: Use your live server URL
+            callbackUrl: `https://backend-1-yuaw.onrender.com/api/callback`, // <-- IMPORTANT: Use your live server URL
             mobileNumber: '9999999999',
             paymentInstrument: { type: 'PAY_PAGE' }
         };
@@ -106,9 +106,9 @@ app.post('/api/donate', async (req, res) => {
             merchantTransactionId: merchantTransactionId,
             merchantUserId: 'DONOR-' + uniqid(),
             amount: amount * 100,
-            redirectUrl: `http://localhost:5173/payment-status/${merchantTransactionId}`,
+            redirectUrl: `https://backend-1-yuaw.onrender.com/payment-status/${merchantTransactionId}`,
             redirectMode: 'POST',
-            callbackUrl: `https://YOUR_LIVE_BACKEND_URL/api/callback`, // <-- IMPORTANT: Use your live server URL
+            callbackUrl: `https://backend-1-yuaw.onrender.com/api/callback`, // <-- IMPORTANT: Use your live server URL
             mobileNumber: '9999999999',
             paymentInstrument: { type: 'PAY_PAGE' }
         };
@@ -181,5 +181,5 @@ app.post('/api/callback', async (req, res) => {
 
 const PORT = 3001;
 app.listen(PORT, () => {
-    console.log(`Payment server running on http://localhost:${PORT}`);
+    console.log(`Payment server running on https://backend-1-yuaw.onrender.com`);
 });

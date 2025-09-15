@@ -38,7 +38,7 @@ app.post('/api/upload-pdf', upload.single('pdfFile'), (req, res) => {
   }
 
   // Frontend ko file ka URL wapas bhej rahe hain
-  const fileUrl = `http://localhost:${PORT}/uploads/${req.file.filename}`;
+  const fileUrl = `https://backend-1-yuaw.onrender.com/uploads/${req.file.filename}`;
   console.log('File uploaded:', fileUrl);
   
   res.json({
@@ -53,5 +53,5 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.listen(PORT, () => {
-  console.log(`PDF upload server is running on http://localhost:${PORT}`);
+  console.log(`PDF upload server is running on https://backend-1-yuaw.onrender.com`);
 });

@@ -79,5 +79,5 @@ app.post('/api/upload-pyq', upload.single('pyqFile'), (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`PYQ server is running on http://localhost:${PORT}`);
+  console.log(`PYQ server is running on https://backend-1-yuaw.onrender.com`);
 });

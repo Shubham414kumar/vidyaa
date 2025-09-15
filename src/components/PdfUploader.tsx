@@ -19,7 +19,7 @@ export default function PdfUploader() {
 
     try {
       // Backend server (jo port 4000 par chal raha hai) ko request bhej rahe hain
-      const response = await fetch("http://localhost:4000/api/upload-pdf", {
+      const response = await fetch("https://backend-1-yuaw.onrender.com/api/upload-pdf", {
         method: "POST",
         body: formData,
       });
