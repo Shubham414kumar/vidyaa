@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+// config.ts
+export const BASE_URL = "https://backend-1-yuaw.onrender.com";
+
 
 // https://vitejs.dev/config/
 export default defineConfig({

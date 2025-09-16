@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { UserPlus, Smartphone } from "lucide-react";
 
 const SignUp = () => {
-  const [step, setStep] = useState<'details' | 'otp'>('details');
+  const [step, setStep] = useState<"details" | "otp">("details");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +26,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const startCountdown = () => {
@@ -51,14 +51,22 @@ const SignUp = () => {
     try {
       await axios.post("https://backend-1-yuaw.onrender.com/api/signup-send-otp", formData);
       toast({ title: "OTP Sent", description: `Verification code sent to +91 ${formData.phone}` });
-      setStep('otp');
+      setStep("otp");
       startCountdown();
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.response?.data?.message || "Failed to send OTP. Please try again.",
-        variant: "destructive"
-      });
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        toast({
+          title: "Error",
+          description: error.response?.data?.message || "Failed to send OTP. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "An unexpected error occurred.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -72,13 +80,21 @@ const SignUp = () => {
       const payload = { phone: formData.phone, otp };
       await axios.post("https://backend-1-yuaw.onrender.com/api/signup-verify-otp", payload);
       toast({ title: "Account Created!", description: "Welcome to VidyaSphere! Please log in to continue." });
-      navigate('/login');
-    } catch (error: any) {
-      toast({
-        title: "Verification Failed",
-        description: error.response?.data?.message || "An error occurred.",
-        variant: "destructive"
-      });
+      navigate("/login");
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        toast({
+          title: "Verification Failed",
+          description: error.response?.data?.message || "An error occurred.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Verification Failed",
+          description: "An unexpected error occurred.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -90,24 +106,24 @@ const SignUp = () => {
         <Card className="shadow-lg border-0">
           <CardHeader className="text-center">
             <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-              {step === 'details' ? (
+              {step === "details" ? (
                 <UserPlus className="h-8 w-8 text-primary-foreground" />
               ) : (
                 <Smartphone className="h-8 w-8 text-primary-foreground" />
               )}
             </div>
             <CardTitle className="text-2xl font-bold">
-              {step === 'details' ? "Create Account" : "Verify Phone"}
+              {step === "details" ? "Create Account" : "Verify Phone"}
             </CardTitle>
             <CardDescription>
-              {step === 'details'
+              {step === "details"
                 ? "Join VidyaSphere and start your learning journey"
                 : `Enter the 6-digit code sent to +91 ${formData.phone}`}
             </CardDescription>
           </CardHeader>
 
           <CardContent>
-            {step === 'details' ? (
+            {step === "details" ? (
               <form onSubmit={handleSendOTP} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
@@ -141,7 +157,15 @@ const SignUp = () => {
               <form onSubmit={handleVerifyOTP} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="otp">Verification Code</Label>
-                  <Input id="otp" type="text" maxLength={6} value={otp} onChange={(e) => setOtp(e.target.value)} required className="text-center tracking-widest"/>
+                  <Input
+                    id="otp"
+                    type="text"
+                    maxLength={6}
+                    value={otp}
+                    onChange={(e) => setOtp(e.target.value)}
+                    required
+                    className="text-center tracking-widest"
+                  />
                 </div>
                 <Button type="submit" disabled={isLoading} className="w-full" size="lg">
                   {isLoading ? "Verifying..." : "Verify & Create Account"}
@@ -152,9 +176,7 @@ const SignUp = () => {
                       Resend OTP
                     </Button>
                   ) : (
-                    <span className="text-muted-foreground">
-                      Resend OTP in {countdown}s
-                    </span>
+                    <span className="text-muted-foreground">Resend OTP in {countdown}s</span>
                   )}
                 </div>
               </form>
